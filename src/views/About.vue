@@ -12,6 +12,10 @@
     <div class="logo-view">
       <img class="image" src="./../assets/logo.png" alt="">
     </div>
+    <div class="varText" :style="{'--varCSS': varCss}">
+      <div class="text-view">变色</div>
+      <button @click="handleClick">bianse</button>
+    </div>
   </div>
 </template>
 
@@ -23,7 +27,8 @@ export default {
   },
   data() {
     return {
-      num: 886
+      num: 886,
+      varCss: '#ccc'
     }
   },
   computed: {
@@ -40,6 +45,12 @@ export default {
   },
   mounted() {
     setInterval(() => this.num ++, 5000)
+  },
+  methods: {
+    // 动态设置 css 变量，改变它的值
+    handleClick() {
+      this.varCss = '#666'
+    }
   }
 }
 </script>
@@ -70,5 +81,10 @@ ul {
   transition-property: all;
   transition-duration: 59s;
   transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
+}
+
+.text-view {
+  height: 20px;
+  color: var(--varCSS);
 }
 </style>

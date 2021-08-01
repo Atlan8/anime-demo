@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       num: 886,
-      varCss: '#ccc'
+      varCss: '#ccc',
     }
   },
   computed: {
